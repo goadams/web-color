@@ -1,0 +1,23 @@
+.tab-list {
+    margin: 1rem;
+    text-align: center;
+}
+
+button[role="tab"] {
+    width: 30%;
+    height: 3.5em;
+    margin: 1%;
+    line-height: 2;
+    border: .1rem solid #111;
+    color: #DDF;
+    background-color: #333;
+    text-align: center;
+}
+
+button.active {
+    outline: .5rem solid #555555;
+}
+
+button:focus {
+    border: #DDDDFF solid 1px;
+}

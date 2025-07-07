@@ -1,0 +1,18 @@
+.color-wheel-container {
+    padding: 3rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.color-wheel-selected {
+    margin: 2rem auto .1rem;
+    font-size: 2.5rem;
+    color: #DDDDFF;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.color-wheel-color {
+    margin: auto;
+    height: 8rem;
+    width: 80%;
+}

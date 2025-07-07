@@ -5,8 +5,8 @@ import MyColorWheel from './components/MyColorWheel/MyColorWheel.jsx';
 import './App.css'
 
 const tabs = [
-    {id: 'random', label: 'Random Color'},
-    {id: 'wheel', label: 'Color Wheel'},
+    {id: 'random', label: 'Random Color', content: <RandomColor />},
+    {id: 'wheel', label: 'Color Wheel', content: <MyColorWheel />},
 ];
 
 function App() {
@@ -21,8 +21,11 @@ function App() {
               onTabSelect={setActiveIndex}
           />
           <div className="tab-panel">
-            {activeIndex === 0 && <RandomColor />}
-            {activeIndex === 1 && <MyColorWheel />}
+              {tabs.map((tab, index) => (
+                  <div key={tab.id} style={{ display: activeIndex === index ? 'block' : 'none' }}>
+                      {tab.content}
+                  </div>
+              ))}
           </div>
         </div>
       </>

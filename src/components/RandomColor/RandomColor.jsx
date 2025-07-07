@@ -41,8 +41,8 @@ const RandomColor = () => {
                 <button className="new-color" onClick={handleGenerate}>New Color</button>
                 <button className="save-color" onClick={handleSave}>Save Color</button>
             </div>
+            <h2>Saved Colors:</h2>
             <div className="saved-colors">
-                <h2>Saved Colors:</h2>
                 {savedColors.map((c, i) => (
                     <div className="saved-color-display" key={i}>
                         <p className="saved-color-code">{c}</p>

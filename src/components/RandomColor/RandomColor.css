@@ -43,9 +43,16 @@ h2 {
     font-size: 2rem;
 }
 
+.saved-colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .saved-color-display {
     align-items: center;
     text-align: center;
+    padding: 1rem;
 }
 
 .saved-color-code {

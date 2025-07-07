@@ -4,7 +4,6 @@ import getLuminance from "../utils/getLuminance.js";
 import hexToRgb from "../utils/hexToRbg.js";
 import './RandomColor.css';
 
-
 const RandomColor = () => {
     const [color, setColor] = React.useState(getRandomColor());
     const [codeColor, setCodeColor] = React.useState('#FFFFFF');
@@ -29,6 +28,10 @@ const RandomColor = () => {
         setSavedColors([...savedColors, color]);
     }
 
+    const handleDelete = (num) => {
+        setSavedColors(prevColors => prevColors.filter((_, i) => i !== num));
+    }
+
     return (
         <div className="random-color">
             <div className="color-display" style={{ backgroundColor: color }}>
@@ -44,6 +47,7 @@ const RandomColor = () => {
                     <div className="saved-color-display" key={i}>
                         <p className="saved-color-code">{c}</p>
                         <div style={{ backgroundColor: c, width: 100, height: 40 }} className="saved-color-color"></div>
+                        <button className="delete-color" onClick={() => handleDelete(i)}>Delete</button>
                     </div>
                 ))}
             </div>

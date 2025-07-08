@@ -15,7 +15,10 @@ button[role="tab"] {
 }
 
 button.active {
-    outline: .5rem solid #555555;
+    background-color: #555555;
+    border: .1rem solid #111;
+    /*box-shadow: #555555 0 .5rem 0;
+    outline: .5rem solid #555555;*/
 }
 
 button:focus {

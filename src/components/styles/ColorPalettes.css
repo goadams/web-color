@@ -1,0 +1,9 @@
+.colors-complementary {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.colors-palette-color {
+    margin: .5rem;
+}

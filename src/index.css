@@ -1,3 +1,8 @@
+:root {
+    --foregroundColor: #FFFFFF;
+    --backgroundColor: #000000;
+}
+
 html {
     font-size: 10px;
     font-family: sans-serif;

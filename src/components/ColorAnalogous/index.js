@@ -1,1 +1,1 @@
-export { default } from './ColorAnalogous.jsx'
+export { default } from './ColorAnalogous.jsx';

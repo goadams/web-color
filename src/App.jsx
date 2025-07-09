@@ -6,7 +6,7 @@ import './App.css'
 
 const tabs = [
     {id: 'random', label: 'Random Color', content: <RandomColor />},
-    {id: 'wheel', label: 'Color Wheel', content: <MyColorWheel />},
+    {id: 'wheel', label: 'Color Palettes', content: <MyColorWheel />},
 ];
 
 function App() {

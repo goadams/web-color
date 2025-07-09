@@ -4,6 +4,11 @@ import './MyColorWheel.css';
 import { TabList } from '../Tabs';
 import ColorComplementary from '../ColorComplementary';
 import ColorAnalogous from '../ColorAnalogous';
+import ColorMono from '../ColorMono';
+import ColorTriad from "../ColorTriad";
+import ColorSplit from "../ColorSplit/index.js";
+import ColorSquare from "../ColorSquare/index.js";
+import ColorTetradic from "../ColorTetradic/index.js";
 
 
 
@@ -14,6 +19,11 @@ const MyColorWheel = () => {
     const tabs = [
         {id: 'complement', label: 'Complementary', content: <ColorComplementary color={color.hex} /> },
         {id: 'analogous', label: 'Analogous', content: <ColorAnalogous color={color.hex} /> },
+        {id: 'monotone', label: 'Monotone', content: <ColorMono color={color.hex} /> },
+        {id: 'triadic', label: 'Triadic', content: <ColorTriad color={color.hex} /> },
+        {id: 'split', label: 'Split', content: <ColorSplit color={color.hex} /> },
+        {id: 'square', label: 'Square', content: <ColorSquare color={color.hex} /> },
+        {id: 'tetra', label: 'Tetradic', content: <ColorTetradic color={color.hex} /> },
     ];
 
     return (
@@ -44,7 +54,7 @@ const MyColorWheel = () => {
                     style={{backgroundColor: color.hex}}>
                 </div>
             </div>
-            <h2>Color Palettes:</h2>
+            <h2>Color Palette Select:</h2>
             <div className="harmony-container">
                 <TabList
                     tabs={tabs}

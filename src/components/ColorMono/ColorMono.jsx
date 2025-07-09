@@ -3,21 +3,20 @@ import hslToHex from "../utils/hslToHex.js";
 import hexToHSL from "../utils/hexToHSL.js";
 import "../styles/ColorPalettes.css";
 
-function generateComplementaryPalette(hex) {
+function generateMonoPalette(hex, count = 5) {
     const base = hexToHSL(hex);
-    const complementHue = (base.h + 180) % 360;
-    return [
-        hslToHex(base.h, base.s, base.l),                        // Base
-        hslToHex(complementHue, base.s, base.l),                 // Complement
-        hslToHex(base.h, base.s, Math.min(base.l + 20, 100)),    // Lighter base
-        hslToHex(complementHue, base.s, Math.min(base.l + 20, 100)), // Lighter complement
-        hslToHex(base.h, base.s, Math.max(base.l - 20, 0)),      // Darker base
-    ];
+    const palette = [];
+    // Evenly distribute lightness values for tints and shades
+    const step = 40 / (count - 1); // e.g., from l-20 to l+20
+    for (let i = 0; i < count; i++) {
+        let l = Math.max(0, Math.min(100, base.l - 20 + step * i));
+        palette.push(hslToHex(base.h, base.s, l));
+    }
+    return palette;
 }
 
-
-const ColorComplementary = ({ color }) => {
-    const complementPalette = generateComplementaryPalette(color);
+const ColorMono = ({ color }) => {
+    const complementPalette = generateMonoPalette(color);
 
     return (
         <>
@@ -31,14 +30,13 @@ const ColorComplementary = ({ color }) => {
             <div className="design-tips">
                 <h3>Design Tips:</h3>
                 <ul>
-                    <li>Use the 60-30-10 rule: one color dominates, the complement accents, and a neutral balances.</li>
-                    <li>Ideal for drawing attention to key actions (like CTAs).</li>
-                    <li>Ideal for drawing attention to key actions (like CTAs).</li>
-                    <li>Use sparingly to avoid visual tension; too much can be jarring.</li>
+                    <li>Use for a clean, harmonious look—great for minimal, elegant designs.</li>
+                    <li>Add contrast with neutral colors (gray, off-white, or black) for text and accents.</li>
+                    <li>Works best for backgrounds, cards, and subtle UI elements.</li>
                 </ul>
             </div>
         </>
     )
 };
 
-export default ColorComplementary;
+export default ColorMono;

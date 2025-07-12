@@ -1,0 +1,229 @@
+
+
+/* General Layout */
+
+.access-contrast-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+    align-items: start;
+}
+
+.contrast-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.access-contrast {
+    width: 100%;
+}
+
+.contrast-container > * {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Lightness Sliders */
+
+.lightness {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.lightness::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #000000 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+}
+.lightness::-moz-range-track {
+    background: linear-gradient(90deg, #000000 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+}
+
+.lightness::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #DDDDFF;
+    height: 2rem;
+    width: 1rem;
+    border-radius: 1rem;
+    margin: -.25rem 0 -.25rem 0;
+}
+.lightness::-moz-range-thumb {
+    background: #DDDDFF;
+    width: 1rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.lightness-btns {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+.lightness-btns > button {
+    width: 100%;
+    height: 100%;
+    border: .1rem solid #111;
+    color: #DDF;
+    background-color: #555555;
+    font-size: 2rem;
+}
+
+.lightness-btns > button.active {
+    background-color: #333333;
+    border: .1rem solid #111;
+}
+
+.lightness-btns > button:focus {
+    border: #DDDDFF solid 1px;
+}
+
+
+/* Color selection styling */
+
+.contrast-foreground,
+.contrast-background {
+    background-color: #111;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2rem 4rem;
+}
+
+.contrast-container label {
+    margin: .5rem 0 0 0;
+    font-size: 1.5rem;
+}
+
+.contrast-container input:not([type="range"]) {
+    margin: 0 auto;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
+    background-color: #DDDDFF;
+    border: none;
+    border-radius: .2rem;
+}
+
+
+/* WCAG Levels / Criteria */
+
+.wcag-container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    justify-self: center;
+    margin: 1rem;
+    background: #111111;
+    padding: 1rem;
+    align-items: center;
+}
+
+.wcag-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.wcag-item label {
+    font-size: 1.5rem;
+}
+
+
+/* Contrast ratio */
+
+.contrast-ratio {
+    line-height: 0;
+    text-align: center;
+    justify-self: center;
+    box-sizing: border-box;
+    width: 20rem;
+    padding: 1rem;
+    background-color: #111111;
+    align-content: center;
+}
+
+.contrast-ratio h3 {
+    line-height: 2rem;
+    margin-top: 1rem;
+}
+
+.contrast-ratio-num {
+    font-size: 4rem;
+}
+
+.contrast-ratio-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contrast-ratio-pass {
+    font-size: 3rem;
+}
+
+
+/* Previews */
+
+.previews-container h3 {
+    display: flex;
+    align-items: center;
+}
+
+.previews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    border: 2px solid #111111;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.preview {
+    margin: .5rem;
+    line-height: 1.8;
+    padding: .2rem;
+}
+
+.preview p {
+    margin: 0;
+}
+
+.standard-text {
+    font-size: 1.8rem;
+    width: 100%;
+}
+
+.large-text {
+    font-size: 2.6rem;
+    width: 100%;
+}
+
+.graphical {
+    width: 100%;
+}
+
+.back-color {
+    margin: 1rem;
+    padding: 1rem;
+    justify-self: center;
+}
+
+.graphic-display {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+
+

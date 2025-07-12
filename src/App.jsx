@@ -3,10 +3,12 @@ import { TabList } from './components/Tabs';
 import RandomColor from './components/RandomColor/RandomColor';
 import MyColorWheel from './components/MyColorWheel/MyColorWheel.jsx';
 import './App.css'
+import Accessibility from "./components/Accessibility/index.js";
 
 const tabs = [
     {id: 'random', label: 'Random Color', content: <RandomColor />},
     {id: 'wheel', label: 'Color Palettes', content: <MyColorWheel />},
+    {id: 'access', label: 'Accessibility', content: <Accessibility />},
 ];
 
 function App() {

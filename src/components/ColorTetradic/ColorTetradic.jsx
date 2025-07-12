@@ -7,7 +7,7 @@ function generateTetradicPalette(hex) {
     const base = hexToHSL(hex);
     // Rectangle: 0°, +60°, +180°, +240°
     const angles = [0, 60, 180, 240];
-    return angles.map(a => hslToHex((base.h + a) % 360, base.s, base.l));
+    return angles.map(a => hslToHex((base[0] + a) % 360, base[1], base[2]));
 }
 
 const ColorTetradic = ({ color }) => {

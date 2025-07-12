@@ -5,12 +5,12 @@ import "../styles/ColorPalettes.css";
 
 function generateTriadicPalette(hex) {
     const base = hexToHSL(hex);
-    const hue1 = (base.h + 120) % 360;
-    const hue2 = (base.h + 240) % 360;
+    const hue1 = (base[0] + 120) % 360;
+    const hue2 = (base[0] + 240) % 360;
     return [
-        hslToHex(base.h, base.s, base.l),    // Base color
-        hslToHex(hue1, base.s, base.l),      // Triad partner 1
-        hslToHex(hue2, base.s, base.l),      // Triad partner 2
+        hslToHex(base[0], base[1], base[2]),    // Base color
+        hslToHex(hue1, base[1], base[2]),      // Triad partner 1
+        hslToHex(hue2, base[1], base[2]),      // Triad partner 2
     ];
 }
 

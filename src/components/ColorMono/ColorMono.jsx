@@ -9,8 +9,8 @@ function generateMonoPalette(hex, count = 5) {
     // Evenly distribute lightness values for tints and shades
     const step = 40 / (count - 1); // e.g., from l-20 to l+20
     for (let i = 0; i < count; i++) {
-        let l = Math.max(0, Math.min(100, base.l - 20 + step * i));
-        palette.push(hslToHex(base.h, base.s, l));
+        let l = Math.max(0, Math.min(100, base[2] - 20 + step * i));
+        palette.push(hslToHex(base[0], base[1], l));
     }
     return palette;
 }

@@ -7,8 +7,8 @@ function generateSquarePalette(hex) {
     const base = hexToHSL(hex);
     const palette = [];
     for (let i = 0; i < 4; i++) {
-        let hue = (base.h + i * 90) % 360;
-        palette.push(hslToHex(hue, base.s, base.l));
+        let hue = (base[0] + i * 90) % 360;
+        palette.push(hslToHex(hue, base[1], base[2]));
     }
     return palette;
 }

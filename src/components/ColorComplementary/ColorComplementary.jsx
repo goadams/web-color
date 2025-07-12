@@ -5,13 +5,13 @@ import "../styles/ColorPalettes.css";
 
 function generateComplementaryPalette(hex) {
     const base = hexToHSL(hex);
-    const complementHue = (base.h + 180) % 360;
+    const complementHue = (base[0] + 180) % 360;
     return [
-        hslToHex(base.h, base.s, base.l),                        // Base
-        hslToHex(complementHue, base.s, base.l),                 // Complement
-        hslToHex(base.h, base.s, Math.min(base.l + 20, 100)),    // Lighter base
-        hslToHex(complementHue, base.s, Math.min(base.l + 20, 100)), // Lighter complement
-        hslToHex(base.h, base.s, Math.max(base.l - 20, 0)),      // Darker base
+        hslToHex(base[0], base[1], base[2]),                        // Base
+        hslToHex(complementHue, base[1], base[2]),                 // Complement
+        hslToHex(base[0], base[1], Math.min(base[2] + 20, 100)),    // Lighter base
+        hslToHex(complementHue, base[1], Math.min(base[2] + 20, 100)), // Lighter complement
+        hslToHex(base[0], base[1], Math.max(base[2] - 20, 0)),      // Darker base
     ];
 }
 

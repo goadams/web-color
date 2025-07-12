@@ -5,13 +5,13 @@ import "../styles/ColorPalettes.css";
 
 function generateSplitPalette(hex, angle = 30) {
     const base = hexToHSL(hex);
-    const compHue = (base.h + 180) % 360;
+    const compHue = (base[0] + 180) % 360;
     const split1 = (compHue - angle + 360) % 360;
     const split2 = (compHue + angle) % 360;
     return [
-        hslToHex(base.h, base.s, base.l),      // Base color
-        hslToHex(split1, base.s, base.l),      // Split complement 1
-        hslToHex(split2, base.s, base.l),      // Split complement 2
+        hslToHex(base[0], base[1], base[2]),      // Base color
+        hslToHex(split1, base[1], base[2]),      // Split complement 1
+        hslToHex(split2, base[1], base[2]),      // Split complement 2
     ];
 }
 

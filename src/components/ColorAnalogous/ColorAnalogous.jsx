@@ -9,8 +9,8 @@ function generateAnalogousPalette(hex, count = 5, angle = 15) {
     const half = Math.floor(count / 2);
 
     for (let i = -half; i <= half; i++) {
-        const hue = (base.h + i * angle + 360) % 360;
-        palette.push(hslToHex(hue, base.s, base.l));
+        const hue = (base[0] + i * angle + 360) % 360;
+        palette.push(hslToHex(hue, base[1], base[2]));
     }
     return palette;
 }

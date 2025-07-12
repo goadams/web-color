@@ -14,11 +14,21 @@
 .color-wheel-color {
     margin: auto;
     height: 8rem;
-    width: 80%;
+    width: 29rem;
 }
 
 h2 {
     color: #DDDDFF;
     font-size: 2rem;
     text-align: center;
+}
+
+.color-palette-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+}
+
+.harmony-container {
+    width: 100%;
 }

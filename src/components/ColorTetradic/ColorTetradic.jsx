@@ -11,15 +11,20 @@ function generateTetradicPalette(hex) {
 }
 
 const ColorTetradic = ({ color }) => {
-    const complementPalette = generateTetradicPalette(color);
+    const tetraPalette = generateTetradicPalette(color);
 
     return (
         <>
             <div className="colors-complementary">
-                <div className="colors-palette-color" style={{ background: complementPalette[0], width: 100, height: 100 }}></div>
-                <div className="colors-palette-color" style={{ background: complementPalette[1], width: 100, height: 100 }}></div>
-                <div className="colors-palette-color" style={{ background: complementPalette[2], width: 100, height: 100 }}></div>
-                <div className="colors-palette-color" style={{ background: complementPalette[3], width: 100, height: 100 }}></div>
+                {tetraPalette.map((color, i) => (
+                    <div key={color + i}>
+                        <p>{color}</p>
+                        <div
+                            className="colors-palette-color"
+                            style={{ background: color, width: 100, height: 100 }}
+                        ></div>
+                    </div>
+                ))}
             </div>
             <div className="design-tips">
                 <h3>Design Tips:</h3>

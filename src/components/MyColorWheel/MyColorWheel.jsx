@@ -27,7 +27,7 @@ const MyColorWheel = () => {
     ];
 
     return (
-        <>
+        <div className="color-palette-wrapper">
             <div className="color-wheel-container">
                 <ColorWheel
                     color={color.hex}
@@ -54,8 +54,8 @@ const MyColorWheel = () => {
                     style={{backgroundColor: color.hex}}>
                 </div>
             </div>
-            <h2>Color Palette Select:</h2>
             <div className="harmony-container">
+                <h2>Color Palette Select:</h2>
                 <TabList
                     tabs={tabs}
                     activeIndex={activeIndex}
@@ -69,7 +69,7 @@ const MyColorWheel = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

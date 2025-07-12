@@ -16,14 +16,20 @@ function generateSplitPalette(hex, angle = 30) {
 }
 
 const ColorSplit = ({ color }) => {
-    const complementPalette = generateSplitPalette(color);
+    const splitPalette = generateSplitPalette(color);
 
     return (
         <>
             <div className="colors-complementary">
-                <div className="colors-palette-color" style={{ background: complementPalette[0], width: 100, height: 100 }}></div>
-                <div className="colors-palette-color" style={{ background: complementPalette[1], width: 100, height: 100 }}></div>
-                <div className="colors-palette-color" style={{ background: complementPalette[2], width: 100, height: 100 }}></div>
+                {splitPalette.map((color, i) => (
+                    <div key={color + i}>
+                        <p>{color}</p>
+                        <div
+                            className="colors-palette-color"
+                            style={{ background: color, width: 100, height: 100 }}
+                        ></div>
+                    </div>
+                ))}
             </div>
             <div className="design-tips">
                 <h3>Design Tips:</h3>

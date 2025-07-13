@@ -1,29 +1,46 @@
 import React, { useState } from "react";
 import ColorWheel from '@uiw/react-color-wheel';
-import './MyColorWheel.css';
+import './ColorPalettes.css';
 import { TabList } from '../Tabs';
-import ColorComplementary from '../ColorComplementary';
-import ColorAnalogous from '../ColorAnalogous';
-import ColorMono from '../ColorMono';
-import ColorTriad from "../ColorTriad";
-import ColorSplit from "../ColorSplit/index.js";
-import ColorSquare from "../ColorSquare/index.js";
-import ColorTetradic from "../ColorTetradic/index.js";
+import ColorPaletteDisplay from "../ColorPaletteDisplay/ColorPaletteDisplay.jsx";
+import {
+    generateAnalogousPalette,
+    generateComplementaryPalette,
+    generateSplitPalette,
+    generateMonoPalette,
+    generateSquarePalette,
+    generateTriadicPalette,
+    generateTetradicPalette
+} from "../utils/paletteGenerators.js";
 
+import paletteTips from "../utils/paletteTips.js";
 
-
-const MyColorWheel = () => {
+const ColorPalettes = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [color, setColor] = useState({ hex:'#0000ff' });
 
     const tabs = [
-        {id: 'complement', label: 'Complementary', content: <ColorComplementary color={color.hex} /> },
-        {id: 'analogous', label: 'Analogous', content: <ColorAnalogous color={color.hex} /> },
-        {id: 'monotone', label: 'Monotone', content: <ColorMono color={color.hex} /> },
-        {id: 'triadic', label: 'Triadic', content: <ColorTriad color={color.hex} /> },
-        {id: 'split', label: 'Split', content: <ColorSplit color={color.hex} /> },
-        {id: 'square', label: 'Square', content: <ColorSquare color={color.hex} /> },
-        {id: 'tetra', label: 'Tetradic', content: <ColorTetradic color={color.hex} /> },
+        {id: 'complement',
+            label: 'Complementary',
+            content: <ColorPaletteDisplay palette={generateComplementaryPalette(color.hex)} designTips={paletteTips.complementary} /> },
+        {id: 'analogous',
+            label: 'Analogous',
+            content: <ColorPaletteDisplay palette={generateAnalogousPalette(color.hex)} designTips={paletteTips.analogous} /> },
+        {id: 'monotone',
+            label: 'Monotone',
+            content: <ColorPaletteDisplay palette={generateMonoPalette(color.hex)} designTips={paletteTips.mono}  /> },
+        {id: 'triadic',
+            label: 'Triadic',
+            content: <ColorPaletteDisplay palette={generateTriadicPalette(color.hex)} designTips={paletteTips.triadic} /> },
+        {id: 'split',
+            label: 'Split',
+            content: <ColorPaletteDisplay palette={generateSplitPalette(color.hex)} designTips={paletteTips.split} /> },
+        {id: 'square',
+            label: 'Square',
+            content: <ColorPaletteDisplay palette={generateSquarePalette(color.hex)} designTips={paletteTips.square} /> },
+        {id: 'tetra',
+            label: 'Tetradic',
+            content: <ColorPaletteDisplay palette={generateTetradicPalette(color.hex)} designTips={paletteTips.tetradic} /> },
     ];
 
     return (
@@ -73,4 +90,4 @@ const MyColorWheel = () => {
     );
 };
 
-export default MyColorWheel;
+export default ColorPalettes;

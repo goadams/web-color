@@ -3,6 +3,8 @@ import getRandomColor from "../utils/getRandomColor.js";
 import getLuminance from "../utils/getLuminance.js";
 import hexToRgb from "../utils/hexToRbg.js";
 import './RandomColor.css';
+import SaveSection from "../SaveSection/index.js";
+import getTextBestColor from "../utils/getTextBestColor.js";
 
 const RandomColor = () => {
     const [color, setColor] = React.useState(getRandomColor());
@@ -12,16 +14,7 @@ const RandomColor = () => {
     const handleGenerate = () => {
         const randomColor = getRandomColor();
         setColor(randomColor);
-
-        const rgb = hexToRgb(randomColor);
-        const luminance = getLuminance(rgb);
-
-        // 0.179 is a common threshold for WCAG contrast
-        if (luminance < 0.2) {
-            setCodeColor('#DDDDDD'); // white text
-        } else {
-            setCodeColor('#111111'); // black text
-        }
+        setCodeColor(getTextBestColor(randomColor));
     };
 
     const handleSave = () => {
@@ -42,15 +35,7 @@ const RandomColor = () => {
                 <button className="save-color" onClick={handleSave}>Save Color</button>
             </div>
             <h2>Saved Colors:</h2>
-            <div className="saved-colors">
-                {savedColors.map((c, i) => (
-                    <div className="saved-color-display" key={i}>
-                        <p className="saved-color-code">{c}</p>
-                        <div style={{ backgroundColor: c, width: 100, height: 40 }} className="saved-color-color"></div>
-                        <button className="delete-color" onClick={() => handleDelete(i)}>Delete</button>
-                    </div>
-                ))}
-            </div>
+            <SaveSection saved={savedColors} handleDelete={handleDelete} />
         </div>
     );
 };

@@ -1,0 +1,30 @@
+.saved {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.saved-display {
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.saved-code {
+    color: #DDDDFF;
+    font-size: 1.6rem;
+    margin-bottom: .1rem;
+}
+
+.saved-color {
+    margin: .1rem auto .5rem;
+}
+
+.delete {
+    width: 100px;
+    outline: none;
+    border: .1rem solid #111;
+    color: #DDF;
+    background-color: #333;
+    margin-bottom: 1rem;
+}

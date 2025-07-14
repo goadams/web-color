@@ -148,7 +148,7 @@ h3 {
     text-align: center;
     justify-self: center;
     box-sizing: border-box;
-    width: 20rem;
+    width: 28rem;
     padding: 1rem;
     background-color: #111111;
     align-content: center;
@@ -169,8 +169,16 @@ h3 {
     justify-content: center;
 }
 
-.contrast-ratio-pass {
+
+[class*="check-"] {
     font-size: 3rem;
+    background: #00AA00;
+    padding: .5rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    color: #111111;
+    font-weight: normal;
+    line-height: 1;
 }
 
 

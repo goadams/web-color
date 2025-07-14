@@ -14,60 +14,39 @@ const AccessContrast = () => {
     const [ratio, setRatio] = React.useState(getContrastRatio(hexForeground, hexBackground));
     const [previewTextColor, setPreviewTextColor] = React.useState("#111111");
 
-    // Icons
-    const [passIcon, setPassIcon] = React.useState("✅");
-    const [passIconStandard, setPassIconStandard] = React.useState("✅");
-    const [passIconLarge, setPassIconLarge] = React.useState("✅");
-    const [passIconGraphic, setPassIconGraphic] = React.useState("✅");
-
-    const [wcagLevel, setWcagLevel] = React.useState("2.1 AAA");
-
     const [sampleText, setSampleText] = React.useState("Sample input text");
 
-    const updateIcons = useCallback(() => {
-        if (wcagLevel === "2.1 AA") {
-            // Large Text & Graphics/UI
-            if (ratio < 3) {
-                setPassIconLarge("❌");
-                setPassIconGraphic("❌");
-                setPassIcon("❌");
-            } else {
-                setPassIconLarge("✅");
-                setPassIconGraphic("✅");
-                setPassIcon("🟡");
-            }
-            // Standard Text
-            if (ratio < 4.5) {
-                setPassIconStandard("❌");
-            } else {
-                setPassIconStandard("✅");
-                setPassIcon("✅");
-            }
-        } else if (wcagLevel === "2.1 AAA") {
-            // Graphics/UI
-            if (ratio < 3) {
-                setPassIconGraphic("❌");
-                setPassIcon("❌");
-            } else {
-                setPassIconGraphic("✅");
-                setPassIcon("🟡");
-            }
-            // Large Text
-            if (ratio < 4.5) {
-                setPassIconLarge("❌");
-            } else {
-                setPassIconLarge("✅");
-                setPassIcon("🟡");
-            }
-            // Standard Text
-            if (ratio < 7) {
-                setPassIconStandard("❌");
-            } else {
-                setPassIconStandard("✅");
-                setPassIcon("✅");
-            }
+    // Passing
+    const [wcagLevel, setWcagLevel] = React.useState("2.1 AAA");
+    const getStatusColor = (status) => {
+        switch (status) {
+            case "PASS":
+                return "#37A925";
+            case "FAIL":
+                return "#e55";
+            case "SOME":
+                return "#fc3";
+            default:
+                return "#000";
         }
-    }, [ratio, wcagLevel]);
+    }
+
+    let statusStandard = "FAIL";
+    let statusLarge = "FAIL";
+    let statusGraphic = "FAIL";
+    let statusOverall = "FAIL";
+
+    if (wcagLevel === "2.1 AA") {
+        statusLarge = ratio >= 3 ? "PASS" : "FAIL";
+        statusGraphic = ratio >= 3 ? "PASS" : "FAIL";
+        statusStandard = ratio >= 4.5 ? "PASS" : "FAIL";
+        statusOverall = ratio >= 4.5 ? "PASS" : (ratio >= 3 ? "SOME" : "FAIL");
+    } else if (wcagLevel === "2.1 AAA") {
+        statusGraphic = ratio >= 3 ? "PASS" : "FAIL";
+        statusLarge = ratio >= 4.5 ? "PASS" : "FAIL";
+        statusStandard = ratio >= 7 ? "PASS" : "FAIL";
+        statusOverall = ratio >= 7 ? "PASS" : (ratio >= 3 ? "SOME" : "FAIL");
+    }
 
     const handleColorChangeBackground = (e) => {
         const newHex = e.target.value.toUpperCase();
@@ -140,11 +119,6 @@ const AccessContrast = () => {
         setHexBackground(newHex);
         setRatio(getContrastRatio(hexForeground, newHex).toFixed(2));
     };
-
-
-    useEffect(() => {
-        updateIcons();
-    }, [updateIcons]);
 
 
     return (
@@ -245,28 +219,64 @@ const AccessContrast = () => {
                     <div className="contrast-ratio-feedback">
                         <p className="contrast-ratio-num">{ratio}:1</p>
                         <div className="contrast-ratio-icon">
-                            <span className="contrast-ratio-pass">{passIcon}</span>
+                            <span
+                                className="check-ratio"
+                                id="check-ratio"
+                                style={{ backgroundColor: getStatusColor(statusOverall)}}
+                            >
+                                {statusOverall}
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="previews-full-container">
                 <h2>Previews:</h2>
-                <div className="previews-container" style={{ backgroundColor: hexBackground, borderColor: previewTextColor }}>
+                <div
+                    className="previews-container"
+                    style={{ backgroundColor: hexBackground, borderColor: previewTextColor }}
+                >
                     <div className="preview standard-text">
-                        <h3 style={{ color: previewTextColor }}>Standard Text <span className="contrast-ratio-pass">{passIconStandard}</span></h3>
+                        <h3 style={{ color: previewTextColor }}>
+                            Standard Text
+                            <span
+                                className="check-standard"
+                                id="check-standard"
+                                style={{ backgroundColor: getStatusColor(statusStandard)}}
+                            >
+                                {statusStandard}
+                            </span>
+                        </h3>
                         <div className="back-color" style={{ backgroundColor: hexBackground }}>
                             <p style={{ color: hexForeground }}>A vivid mix of hues jumps quickly, dazzling eyes with zest. When black text overlays a white background, visibility peaks; yet, quirky magenta or yellow fonts perplex viewers.</p>
                         </div>
                     </div>
                     <div className="preview large-text">
-                        <h3 style={{ color: previewTextColor }}>Large Text <span className="contrast-ratio-pass">{passIconLarge}</span></h3>
+                        <h3 style={{ color: previewTextColor }}>
+                            Large Text
+                            <span
+                                className="check-large"
+                                id="check-large"
+                                style={{ backgroundColor: getStatusColor(statusLarge)}}
+                            >
+                                {statusLarge}
+                            </span>
+                        </h3>
                         <div className="back-color" style={{ backgroundColor: hexBackground }}>
                             <p style={{ color: hexForeground }}>A vivid mix of hues jumps quickly, dazzling eyes with zest. When black text overlays a white background, visibility peaks; yet, quirky magenta or yellow fonts perplex viewers.</p>
                         </div>
                     </div>
                     <div className="preview graphical">
-                        <h3 style={{ color: previewTextColor }}>Graphics and UI <span className="contrast-ratio-pass">{passIconGraphic}</span></h3>
+                        <h3 style={{ color: previewTextColor }}>
+                            Graphics and UI
+                            <span
+                                className="check-graphics"
+                                id="check-graphics"
+                                style={{ backgroundColor: getStatusColor(statusGraphic)}}
+                            >
+                                {statusGraphic}
+                            </span>
+                        </h3>
                         <div className="back-color" style={{ backgroundColor: hexBackground }}>
                             <div className="graphic-display">
                                 <svg

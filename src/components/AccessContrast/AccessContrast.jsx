@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from "react";
+import React from "react";
 import "./AccessContrast.css";
 import hexToHSL from "../utils/hexToHSL.js";
 import hslToHex from "../utils/hslToHex.js";

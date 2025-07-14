@@ -16,7 +16,7 @@ const RandomColor = () => {
     };
 
     const handleSave = () => {
-        setSavedColors([...savedColors, [color]]);
+        setSavedColors([ [color], ...savedColors]);
     }
 
     const handleDelete = (num) => {

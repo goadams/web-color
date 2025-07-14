@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import ColorWheel from '@uiw/react-color-wheel';
 import './ColorPalettes.css';
 import { TabList } from '../Tabs';
 import ColorPaletteDisplay from "../ColorPaletteDisplay/ColorPaletteDisplay.jsx";
 import {
+    paletteGenerators,
     generateAnalogousPalette,
     generateComplementaryPalette,
     generateSplitPalette,
@@ -12,12 +13,22 @@ import {
     generateTriadicPalette,
     generateTetradicPalette
 } from "../utils/paletteGenerators.js";
-
 import paletteTips from "../utils/paletteTips.js";
+import SaveSection from "../SaveSection/index.js";
 
 const ColorPalettes = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [color, setColor] = useState({ hex:'#0000ff' });
+    const [palette, setPalette] = useState([]);
+    const [savedPalettes, setSavedPalettes] = React.useState([]);
+
+    useEffect(() => {
+        const generate = paletteGenerators[activeIndex];
+        if (generate) {
+            const newPalette = generate(color.hex);
+            setPalette(newPalette);
+        }
+    }, [activeIndex, color]);
 
     const tabs = [
         {id: 'complement',
@@ -43,9 +54,25 @@ const ColorPalettes = () => {
             content: <ColorPaletteDisplay palette={generateTetradicPalette(color.hex)} designTips={paletteTips.tetradic} /> },
     ];
 
+    const handleSave = () => {
+        setSavedPalettes([
+            {
+                colors: palette,
+                type: tabs[activeIndex].label,
+                baseColor: color.hex.toUpperCase()
+            },
+            ...savedPalettes
+        ]);
+    }
+
+    const handleDelete = (num) => {
+        setSavedPalettes(prevPalettes => prevPalettes.filter((_, i) => i !== num));
+    }
+
     return (
         <div className="color-palette-wrapper">
             <div className="color-wheel-container">
+                <h2>Color Select:</h2>
                 <ColorWheel
                     color={color.hex}
                     onChange={setColor}
@@ -72,17 +99,31 @@ const ColorPalettes = () => {
                 </div>
             </div>
             <div className="harmony-container">
-                <h2>Color Palette Select:</h2>
+                <h2>Palette Select:</h2>
                 <TabList
                     tabs={tabs}
                     activeIndex={activeIndex}
                     onTabSelect={setActiveIndex}
                 />
+                <button className="save-palette" onClick={handleSave}>Save Palette</button>
                 <div className="tab-panel">
                     {tabs.map((tab, index) => (
                         <div key={tab.id} style={{ display: activeIndex === index ? 'block' : 'none' }}>
                             {tab.content}
                         </div>
+                    ))}
+                </div>
+            </div>
+            <div>
+                <h2>Saved Palettes:</h2>
+                <div className="saved-colors">
+                    {savedPalettes.map((pal, i) => (
+                        <SaveSection
+                            key={i}
+                            colors={pal.colors}
+                            heading={`${pal.baseColor} - ${pal.type} Palette`}
+                            handleDelete={() => handleDelete(i)}
+                        />
                     ))}
                 </div>
             </div>

@@ -16,6 +16,8 @@ h3 {
     color: #DDDDFF;
     font-size: 1.4rem;
     justify-self: center;
+    margin-top: 2rem;
+    line-height: 1.6;
 }
 
 .colors-complementary p {

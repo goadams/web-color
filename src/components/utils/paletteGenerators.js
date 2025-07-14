@@ -1,6 +1,16 @@
 import hexToHSL from "./hexToHSL.js";
 import hslToHex from "./hslToHex.js";
 
+export const paletteGenerators = [
+    generateComplementaryPalette,
+    generateAnalogousPalette,
+    generateMonoPalette,
+    generateTriadicPalette,
+    generateSplitPalette,
+    generateSquarePalette,
+    generateTetradicPalette,
+];
+
 export function generateAnalogousPalette(hex, count = 5, angle = 15) {
     const base = hexToHSL(hex);
     const palette = [];

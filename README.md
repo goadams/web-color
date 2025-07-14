@@ -4,5 +4,17 @@ A website with color tools commonly used in web development.
 - Get a random color
 - Save colors for later
 ## Color Palettes
+- Choose a palette type
+  - Complementary
+  - Analogous
+  - Monotone
+  - Triadic
+  - Split
+  - Square
+  - Tetradic
+- Save color palettes for later
 ## Accessibility
-- Contrast Checker
+- Contrast Checker for WCAG 2.1 AA and 2.1 AAA
+  - Standard text
+  - Large text
+  - Graphics and UI

@@ -1,7 +1,5 @@
 import React from "react";
 import getRandomColor from "../utils/getRandomColor.js";
-import getLuminance from "../utils/getLuminance.js";
-import hexToRgb from "../utils/hexToRbg.js";
 import './RandomColor.css';
 import SaveSection from "../SaveSection/index.js";
 import getTextBestColor from "../utils/getTextBestColor.js";
@@ -18,7 +16,7 @@ const RandomColor = () => {
     };
 
     const handleSave = () => {
-        setSavedColors([...savedColors, color]);
+        setSavedColors([...savedColors, [color]]);
     }
 
     const handleDelete = (num) => {
@@ -35,7 +33,15 @@ const RandomColor = () => {
                 <button className="save-color" onClick={handleSave}>Save Color</button>
             </div>
             <h2>Saved Colors:</h2>
-            <SaveSection saved={savedColors} handleDelete={handleDelete} />
+            <div className="saved-colors">
+                {savedColors.map((c, i) => (
+                    <SaveSection
+                        key={i}
+                        colors={c}
+                        handleDelete={() => handleDelete(i)}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

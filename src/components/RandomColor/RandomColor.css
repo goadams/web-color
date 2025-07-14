@@ -43,3 +43,8 @@ h2 {
     font-size: 2rem;
 }
 
+.saved-colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

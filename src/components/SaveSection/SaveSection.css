@@ -1,9 +1,3 @@
-.saved {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .saved-display {
     align-items: center;
     text-align: center;
@@ -13,11 +7,11 @@
 .saved-code {
     color: #DDDDFF;
     font-size: 1.6rem;
-    margin-bottom: .1rem;
+    margin-bottom: 0;
 }
 
 .saved-color {
-    margin: .1rem auto .5rem;
+    margin: .1rem auto .1rem;
 }
 
 .delete {
@@ -27,4 +21,5 @@
     color: #DDF;
     background-color: #333;
     margin-bottom: 1rem;
+    margin-top: 0;
 }

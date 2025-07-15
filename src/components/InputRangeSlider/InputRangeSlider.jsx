@@ -1,7 +1,7 @@
 import React from "react";
-import "./InputSlider.css"
+import "./InputRangeSlider.css"
 
-const InputSlider = (props) => {
+const InputRangeSlider = (props) => {
     const {
         val,
         handleChange,
@@ -39,4 +39,4 @@ const InputSlider = (props) => {
 )};
 
 
-export default InputSlider;
+export default InputRangeSlider;

@@ -3,12 +3,14 @@ import { TabList } from './components/Tabs';
 import RandomColor from './components/RandomColor/RandomColor';
 import ColorPalettes from './components/ColorPalettes/ColorPalettes.jsx';
 import './App.css'
-import Accessibility from "./components/Accessibility/index.js";
+import AccessibilityTab from "./components/AccessibilityTab/index.js";
+import GradientsTab from "./components/GradientsTab/GradientsTab.jsx";
 
 const tabs = [
     {id: 'random', label: 'Random Color', content: <RandomColor />},
     {id: 'wheel', label: 'Color Palettes', content: <ColorPalettes />},
     {id: 'access', label: 'Accessibility', content: <Accessibility />},
+    {id: 'access', label: 'Accessibility', content: <AccessibilityTab />},
 ];
 
 function App() {

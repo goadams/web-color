@@ -6,7 +6,7 @@
 button[role="tab"] {
     width: 20rem;
     height: 3.5em;
-    margin: 1%;
+    margin: .2rem;
     line-height: 2;
     border: .1rem solid #111;
     color: #DDF;

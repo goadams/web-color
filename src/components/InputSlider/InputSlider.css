@@ -1,0 +1,56 @@
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+
+.slider::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #000000 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+}
+.slider::-moz-range-track {
+    background: linear-gradient(90deg, #000000 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #DDDDFF;
+    height: 2rem;
+    width: 1rem;
+    border-radius: 1rem;
+    margin: -.25rem 0 -.25rem 0;
+}
+.slider::-moz-range-thumb {
+    background: #DDDDFF;
+    width: 1rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.slider-btns {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+.slider-btns > button {
+    width: 100%;
+    height: 100%;
+    border: .1rem solid #111;
+    color: #DDF;
+    background-color: #555555;
+    font-size: 2rem;
+}
+
+.slider-btns > button.active {
+    background-color: #333333;
+    border: .1rem solid #111;
+}
+
+.slider-btns > button:focus {
+    border: #DDDDFF solid 1px;
+}

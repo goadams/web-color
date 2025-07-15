@@ -4,6 +4,7 @@ import hexToHSL from "../utils/hexToHSL.js";
 import hslToHex from "../utils/hslToHex.js";
 import getContrastRatio from "../utils/getContrastRatio.js";
 import getTextBestColor from "../utils/getTextBestColor.js";
+import InputSlider from "../InputSlider";
 
 
 const AccessContrast = () => {
@@ -142,19 +143,13 @@ const AccessContrast = () => {
                             value={hexForeground}
                             onChange={handleColorChangeForeground}
                         />
-                        <label htmlFor="foreground-lightness">Lightness</label>
-                        <div className="lightness-btns">
-                            <button onClick={decrementLightForeground}>-</button>
-                            <button onClick={incrementLightForeground}>+</button>
-                        </div>
-                        <input
-                            className="lightness"
-                            type="range"
-                            min={0}
-                            max={100}
-                            value={lightnessForeground}
-                            onChange={handleLightForeground}
+                        <InputSlider
+                            val={lightnessForeground}
+                            handleChange={handleLightForeground}
                             id="foreground-lightness"
+                            label="Lightness"
+                            handleIncrement={incrementLightForeground}
+                            handleDecrement={decrementLightForeground}
                         />
                     </div>
                     <div className="contrast-background">
@@ -173,19 +168,13 @@ const AccessContrast = () => {
                             value={hexBackground}
                             onChange={handleColorChangeBackground}
                         />
-                        <label htmlFor="background-lightness">Lightness</label>
-                        <div className="lightness-btns">
-                            <button onClick={decrementLightBackground}>-</button>
-                            <button onClick={incrementLightBackground}>+</button>
-                        </div>
-                        <input
-                            className="lightness"
-                            type="range"
-                            min={0}
-                            max={100}
-                            value={lightnessBackground}
-                            onChange={handleLightBackground}
+                        <InputSlider
+                            val={lightnessBackground}
+                            handleChange={handleLightBackground}
                             id="background-lightness"
+                            label="Lightness"
+                            handleIncrement={incrementLightBackground}
+                            handleDecrement={decrementLightBackground}
                         />
                     </div>
                 </div>

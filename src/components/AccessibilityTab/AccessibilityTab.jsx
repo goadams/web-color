@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TabList } from '../Tabs';
 import AccessContrast from "../AccessContrast/index.js";
 
-const Accessibility = () => {
+const AccessibilityTab = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const tabs = [
@@ -26,4 +26,4 @@ const Accessibility = () => {
     )
 }
 
-export default Accessibility;
+export default AccessibilityTab;

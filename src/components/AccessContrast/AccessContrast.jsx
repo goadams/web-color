@@ -4,7 +4,7 @@ import hexToHSL from "../utils/hexToHSL.js";
 import hslToHex from "../utils/hslToHex.js";
 import getContrastRatio from "../utils/getContrastRatio.js";
 import getTextBestColor from "../utils/getTextBestColor.js";
-import InputSlider from "../InputSlider";
+import InputRangeSlider from "../InputRangeSlider";
 
 
 const AccessContrast = () => {
@@ -143,7 +143,7 @@ const AccessContrast = () => {
                             value={hexForeground}
                             onChange={handleColorChangeForeground}
                         />
-                        <InputSlider
+                        <InputRangeSlider
                             val={lightnessForeground}
                             handleChange={handleLightForeground}
                             id="foreground-lightness"
@@ -168,7 +168,7 @@ const AccessContrast = () => {
                             value={hexBackground}
                             onChange={handleColorChangeBackground}
                         />
-                        <InputSlider
+                        <InputRangeSlider
                             val={lightnessBackground}
                             handleChange={handleLightBackground}
                             id="background-lightness"

@@ -25,12 +25,14 @@ const RandomColor = () => {
 
     return (
         <div className="random-color">
-            <div className="color-display" style={{ backgroundColor: color }}>
-                <p className="color-code" style={{color: codeColor}}>{color}</p>
-            </div>
-            <div className="button-container">
-                <button className="new-color" onClick={handleGenerate}>New Color</button>
-                <button className="save-color" onClick={handleSave}>Save Color</button>
+            <div className="color-container">
+                <div className="color-display" style={{ backgroundColor: color }}>
+                    <p className="color-code" style={{color: codeColor}}>{color}</p>
+                </div>
+                <div className="button-container">
+                    <button className="new-color" onClick={handleGenerate}>New Color</button>
+                    <button className="save-color" onClick={handleSave}>Save Color</button>
+                </div>
             </div>
             <h2>Saved Colors:</h2>
             <div className="saved-colors">

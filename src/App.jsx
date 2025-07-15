@@ -9,7 +9,7 @@ import GradientsTab from "./components/GradientsTab/GradientsTab.jsx";
 const tabs = [
     {id: 'random', label: 'Random Color', content: <RandomColor />},
     {id: 'wheel', label: 'Color Palettes', content: <ColorPalettes />},
-    {id: 'access', label: 'Accessibility', content: <Accessibility />},
+    {id: 'gradient', label: 'Gradient Maker', content: <GradientsTab />},
     {id: 'access', label: 'Accessibility', content: <AccessibilityTab />},
 ];
 

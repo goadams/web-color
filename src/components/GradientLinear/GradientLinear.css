@@ -1,0 +1,92 @@
+.gradient-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.gradient-container h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+
+}
+
+.gradient-preview {
+    width: 100rem;
+    max-width: 90%;
+    height: 15rem;
+    margin: 1rem;
+}
+
+.gradient-colors-container {
+    display: flex;
+}
+
+.gradient-color,
+.angle-container,
+.css-code-container {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2rem 4rem;
+    margin: 1rem;
+}
+
+
+
+.gradient-color > *,
+.angle-container > * {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.gradient-color-input {
+    width: 10rem;
+    height: 5rem;
+    background: none;
+    padding: 0;
+    border: none;
+    border-bottom: .4rem solid #555555;
+}
+.gradient-color-input:focus {
+    border: none;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"] {
+    background: none;
+    border: none;
+    border-bottom: .4rem solid #555555;
+    outline: none;
+    color: #DDDDFF;
+    font-size: 3rem;
+    text-align: center;
+    width: 10rem;
+}
+
+.angle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.written-code {
+    font-family: monospace;
+}

@@ -13,6 +13,9 @@ A website with color tools commonly used in web development.
   - Square
   - Tetradic
 - Save color palettes for later
+## Gradient Maker
+- Linear gradient
+  - CSS code snippet
 ## Accessibility
 - Contrast Checker for WCAG 2.1 AA and 2.1 AAA
   - Standard text

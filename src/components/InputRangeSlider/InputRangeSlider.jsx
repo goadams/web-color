@@ -22,8 +22,12 @@ const InputRangeSlider = (props) => {
             )}
             {handleIncrement && handleDecrement && (
                 <div className="slider-btns">
-                    <button onClick={handleDecrement}>-</button>
-                    <button onClick={handleIncrement}>+</button>
+                    <button onClick={handleDecrement}>
+                        -
+                    </button>
+                    <button onClick={handleIncrement}>
+                        +
+                    </button>
                 </div>
             )}
             <input
